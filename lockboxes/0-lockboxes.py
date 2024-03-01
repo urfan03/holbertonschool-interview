@@ -20,6 +20,7 @@ def canUnlockAll(boxes):
 
     # Initialize a set to keep track of visited boxes
     visited = set()
+  
     # Initialize a stack with the first box
     stack = [0]
 
