@@ -35,7 +35,7 @@ def canUnlockAll(boxes):
 
 if __name__ == "__main__":
     boxes = [[1], [2], [3], []]
-    keys = []
+    keys = [[1], [2], [3], []]
 
     for n in range(1, 1000):
         keys = []
