@@ -3,6 +3,7 @@
 
 '''This script determines if all boxes can be opened.'''
 
+
 def canUnlockAll(boxes):
 
     """
