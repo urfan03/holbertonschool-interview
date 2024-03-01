@@ -49,7 +49,7 @@ def canUnlockAll(boxes):
 
 # Example usage:
 if __name__ == "__main__":
-    boxes = []
+    boxes = [[1], [2], [3], []]
 
     keys = []
     for n in range(1, 1000):
@@ -57,10 +57,5 @@ if __name__ == "__main__":
         for m in range(1, 1000):
             keys.append(m)
         boxes.append(keys)
-
-    print(canUnlockAll(boxes))
-
-if __name__ == "__main__":
-    boxes = [[1], [2], [3], []]
 
     print(canUnlockAll(boxes))
