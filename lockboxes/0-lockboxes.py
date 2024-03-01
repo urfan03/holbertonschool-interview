@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-'''This function determines if all the boxes can be opened.'''
+''' LOCKBOXES
+    This function determines if all the boxes can be opened.'''
 
 def canUnlockAll(boxes):
   """
@@ -60,4 +61,3 @@ def canUnlockAll(boxes):
     # If not all boxes are visited, log a message about checker depth limitation (optional).
     print(f"Not all boxes opened. Checker might have limited depth ({max_depth})")
     return False
-  
