@@ -59,3 +59,8 @@ if __name__ == "__main__":
         boxes.append(keys)
 
     print(canUnlockAll(boxes))
+
+if __name__ == "__main__":
+    boxes = [[1], [2], [3], []]
+
+    print(canUnlockAll(boxes))
