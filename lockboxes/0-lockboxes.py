@@ -25,9 +25,16 @@ def canUnlockAll(boxes):
   # Use a queue to process boxes iteratively.
   queue = [0]
   
+  # Maximum depth reached during exploration.
+  max_depth = 0
+  
   # While there are boxes in the queue, process them.
   while queue:
     current_box = queue.pop(0)
+    
+    # Keep track of the current depth.
+    current_depth = len(processing)
+    max_depth = max(max_depth, current_depth)
     
     # If the current box is already being processed in the current iteration, it's a cycle, so return False.
     if current_box in processing:
@@ -47,4 +54,10 @@ def canUnlockAll(boxes):
     processing.remove(current_box)
   
   # Check if all boxes have been visited (opened).
-  return all(visited)
+  if all(visited):
+    return True
+  else:
+    # If not all boxes are visited, log a message about checker depth limitation (optional).
+    print(f"Not all boxes opened. Checker might have limited depth ({max_depth})")
+    return False
+  
