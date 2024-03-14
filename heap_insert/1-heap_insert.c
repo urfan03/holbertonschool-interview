@@ -24,6 +24,14 @@ size_t binary_tree_size(const binary_tree_t *tree)
 	return (size);
 }
 
+/**
+ * insert_ordered - Inserts node level ordered
+ * @tree: Type binary_tree pointer of the parent node
+ * @value: Type int value of value inserted into node
+ * @idx: Type int index of the node
+ * @n_leaf: Type int node array position (parent formula: idx / 2)
+ * Return: Node inserted
+ */
 heap_t *insert_ordered(binary_tree_t *tree, int value, int idx, int n_leaf)
 {
 	heap_t *node;
@@ -58,6 +66,13 @@ heap_t *insert_ordered(binary_tree_t *tree, int value, int idx, int n_leaf)
 		return (insert_ordered(tree->right, value, 2 * idx + 2, n_leaf));
 	}
 }
+
+/**
+ * heap_insert - Insert a node into a Max binary heap
+ * @root: Type heap_t pointer of the parent node
+ * @value: Type int of value inserted into node
+ * Return: Node inserted
+ */
 
 heap_t *heap_insert(heap_t **root, int value)
 {
