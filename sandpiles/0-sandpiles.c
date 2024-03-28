@@ -1,4 +1,6 @@
 #include "sandpiles.h"
+
+
 /**
  * print_grid2 - prints a grid
  *
@@ -6,6 +8,8 @@
  * Return: no return
  *
  */
+
+
 void print_grid2(int grid[3][3])
 {
 	int i, j;
@@ -21,6 +25,8 @@ void print_grid2(int grid[3][3])
 		printf("\n");
 	}
 }
+
+
 /**
  * add - sum two grids
  * @grid1: 1st grid to sum
@@ -28,6 +34,8 @@ void print_grid2(int grid[3][3])
  * Return: no return
  *
  */
+
+
 void add(int grid1[3][3], int grid2[3][3])
 {
 	int i, j;
@@ -39,6 +47,8 @@ void add(int grid1[3][3], int grid2[3][3])
 	}
 
 }
+
+
 /**
  * tupple - excecutes one step tupple
  * @grid: grid to analize
@@ -46,6 +56,8 @@ void add(int grid1[3][3], int grid2[3][3])
  * Return: no return
  *
  */
+
+
 void tupple(int grid[3][3], int tmp[3][3])
 {
 	int i, j;
@@ -74,6 +86,8 @@ void tupple(int grid[3][3], int tmp[3][3])
 		}
 	}
 }
+
+
 /**
  * stable - checks if grid is stable
  * @grid: grid to analize
@@ -95,6 +109,8 @@ int stable(int grid[3][3])
 	}
 	return (1);
 }
+
+
 /**
  * sandpiles_sum - add two grids
  * @grid1: 1st grid to add
@@ -102,6 +118,8 @@ int stable(int grid[3][3])
  * Return: no return
  *
  */
+
+
 void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 {
 	int tmp[3][3];
