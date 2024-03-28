@@ -3,12 +3,15 @@
 
 #include "sandpiles.h"
 
+
 /**
  * stable - Checks if sandpile is stable
  * @grid: 3x3 grid to be printed
  *
  * Return: Is sandpile stable or not(1,0)
  */
+
+
 int stable(int grid[3][3])
 {
 	int i, j;
@@ -20,17 +23,22 @@ int stable(int grid[3][3])
 
 	return (1);
 }
+
+
 /**
  * print_grid - Print 3x3 grid
  * @grid: 3x3 grid
  *
  */
+
+
 static void print_grid(int grid[3][3])
 {
 	int i, j;
 
 	for (i = 0; i < 3; i++)
 	{
+
 		for (j = 0; j < 3; j++)
 		{
 			if (j)
@@ -46,6 +54,8 @@ static void print_grid(int grid[3][3])
  * @grid1: Left 3x3 grid
  * @grid2: Right 3x3 grid
  */
+
+
 void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 {
 	int i, j;
