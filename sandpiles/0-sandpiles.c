@@ -10,8 +10,6 @@
  *
  * Return: Is sandpile stable or not(1,0)
  */
-
-
 int stable(int grid[3][3])
 {
 	int i, j;
@@ -30,8 +28,6 @@ int stable(int grid[3][3])
  * @grid: 3x3 grid
  *
  */
-
-
 static void print_grid(int grid[3][3])
 {
 	int i, j;
