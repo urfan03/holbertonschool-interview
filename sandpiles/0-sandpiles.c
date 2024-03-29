@@ -8,6 +8,7 @@
  * stable - Checks if sandpile is stable
  * @grid: 3x3 grid to be printed
  *
+ *
  * Return: Is sandpile stable or not(1,0)
  */
 int stable(int grid[3][3])
