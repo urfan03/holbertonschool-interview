@@ -66,3 +66,4 @@ if __name__ == '__main__':
     board = [[0 for i in range(n)] for j in range(n)]
     # first col is 0
     nQueens(board, 0, n)
+
