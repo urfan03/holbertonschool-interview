@@ -1,28 +1,34 @@
 #!/usr/bin/node
-// script that prints all characters of a Star Wars movie in order
+
+/*
+Get characters from Star Wars Movie
+*/
+
+const URL = 'https://swapi-api.hbtn.io/api/';
 const request = require('request');
-const myArgs = process.argv.splice(2);
-const URL = 'https://swapi-api.hbtn.io/api/films/' + myArgs[0];
-request.get(URL, async (err, response, body) => {
-  if (err) {
-    console.log(err);
-  } else {
-    const character = JSON.parse(body).characters;
-    const characterList = characterURLs => {
-      const promise = new Promise((resolve, reject) => {
-        request.get(characterURLs, (err, response, body) => {
-          if (err) {
-            reject(err);
-          } else {
-            resolve(body);
-          }
-        });
-      });
-      return promise;
-    };
-    for (let i = 0; i < character.length; i++) {
-      const result = await characterList(character[i]);
-      console.log(JSON.parse(result).name);
+const idMovie = process.argv[2];
+
+async function getRequest (url) {
+  return new Promise(function (resolve, reject) {
+    request.get(url, function (err, resp, body) {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(JSON.parse(body));
+      }
+    });
+  });
+}
+
+(async () => {
+  return getRequest(URL + 'films/' + idMovie);
+})().then(async (movie) => {
+  if (movie.detail !== 'Not found') {
+    for (const ch of movie.characters) {
+      const character = await getRequest(ch);
+      if (character.detail === undefined) {
+        console.log(character.name);
+      }
     }
   }
 });
