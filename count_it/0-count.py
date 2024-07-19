@@ -50,3 +50,4 @@ def count_words(subreddit, word_list, after='', word_count={}):
         sorted_word_count = sorted(word_count.items(), key=lambda kv: (-kv[1], kv[0]))
         for word, count in sorted_word_count:
             print(f"{word}: {count}")
+
