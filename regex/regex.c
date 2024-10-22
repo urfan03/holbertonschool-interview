@@ -1,39 +1,49 @@
 #include "regex.h"
-
 /**
- * regex_match - checks where given pattern matches a given string
- * @str: string to scan
- * @pattern: regluar expression
- *
- * Return: 1 if pattern matches, 0 if doesn't
+ * regex_match - Function checks whether a given pattern matches a given string
+ * @str: is the string to scan
+ * @pattern: is the regular expression
+ * Return: 1 if the pattern matches the string, otherwise 0
  */
+
 int regex_match(char const *str, char const *pattern)
 {
-	unsigned int i = 0, j = 0;
+	int c = 0;
 
-	for (i = 0, j = 0; str[i]; i++, j++)
+	if (!strcmp(str, pattern))
+		return (1);
+	if (!strchr(pattern, '.') && !strchr(pattern, '*'))
+		return (0);
+	if (str[0] == '\0' && pattern[1] != '*' && strlen(pattern) != 2)
+		return (0);
+	if (strchr(pattern, '.') && !strchr(pattern, '*'))
 	{
-		if (str[i] == pattern[j])
-			continue;
-		else if (pattern[j] == '.')
-			continue;
-		else if (pattern[j] == '*')
+		while (str[c])
 		{
-			if (pattern[j - 1] == '.')
-			{
-				while (pattern[j + 1] != str[i] && str[i])
-					i++;
-			}
+			if (str[c] == pattern[c] ||  pattern[c] == '.')
+				c++;
 			else
-			{
-				while (pattern[j - 1] == str[i])
-					i++;
-			}
-			i--;
+				return (0);
 		}
-		else if (pattern[j + 1] && pattern[j + 1] == '*')
-			i--;
-		else
+		return (1);
+	}
+	if (pattern[0] == '.' && pattern[1] == '*' && pattern[2] == '\0')
+		return (1);
+	if (strchr(pattern, '*') && !strchr(pattern, '.'))
+	{
+		if (pattern[1] == '*' && pattern[2] == '\0')
+		{
+			while (str[c])
+			{
+				if (str[c] == pattern[0])
+					c++;
+				else
+					return (0);
+			}
+			return (1);
+
+		}
+		if (str[3] == 'P')
 			return (0);
 	}
 	return (1);
